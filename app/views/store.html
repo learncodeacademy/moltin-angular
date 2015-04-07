@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-3">
+    <ul class="list-group">
+      <li ng-repeat="cat in categories" class="list-group-item">
+        <a ng-href="#/category/{{cat.id}}">{{ cat.title }}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-9">
+    <h2>Featured Items</h2>
+    <div class="row">
+      <div class="col-sm-3" ng-repeat="prod in features">
+        <a ng-href="#/product/{{prod.id}}">
+          <img src="{{prod.images[0].url.http}}" alt="{{prod.title}}" width="100%"/>
+        <p>{{ prod.title }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

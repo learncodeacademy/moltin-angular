@@ -1,0 +1,22 @@
+<h3>Your Cart:</h3>
+
+<table class="table table-striped table-responsive">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Qty</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="(id, product) in cart.contents">
+      <td>{{product.name}}</td>
+      <td>{{product.quantity}}</td>
+      <td>{{product.pricing.formatted.without_tax}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Total Price: {{cart.totals.formatted.with_tax}}</h4>
+
+<a href="#/checkout" class="btn btn-success">Checkout!</a>

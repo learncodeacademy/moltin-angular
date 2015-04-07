@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>Payment</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <div class="loginbox">
+      <p>Billing Address</p>
+      <ul>
+        <li>{{ order.bill_to.data.first_name }} {{ order.bill_to.data.last_name }}</li>
+        <li ng-if="order.bill_to.data.company">{{ order.bill_to.data.company }}</li>
+        <li>{{ order.bill_to.data.address_1 }}</li>
+        <li>{{ order.bill_to.data.address_2 }}</li>
+        <li>{{ order.bill_to.data.county }}</li>
+        <li>{{ order.bill_to.data.postcode }}</li>
+        <li>{{ order.bill_to.data.country.value }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="loginbox">
+      <p>Shipping Address</p>
+      <ul>
+        <li>{{ order.ship_to.data.first_name }} {{ order.ship_to.data.last_name }}</li>
+        <li ng-if="order.ship_to.data.company">{{ order.ship_to.data.company }}</li>
+        <li>{{ order.ship_to.data.address_1 }}</li>
+        <li>{{ order.ship_to.data.address_2 }}</li>
+        <li>{{ order.ship_to.data.county }}</li>
+        <li>{{ order.ship_to.data.postcode }}</li>
+        <li>{{ order.ship_to.data.country.value }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <form class="loginbox form-horizontal">
+      <p>Payment</p>
+      <div class="form-group">
+        <label class="control-label col-md-4" for="card">Card Number <span class="required">*</span></label>
+        <div class="col-md-8">
+          <input class="form-control" id="card" ng-model="data.number" type="text" card-format />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-4" for="expiry_month">Expiry Date <span class="required">*</span></label>
+        <div class="col-md-4">
+          <input class="form-control" id="expiry_month" ng-model="data.expiry_month" type="text" placeholder="DD" />
+        </div>
+        <div class="col-md-4">
+          <input class="form-control" id="expiry_year" ng-model="data.expiry_year" type="text" placeholder="YYYY" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-4" for="cv2">CV2 <span class="required">*</span></label>
+        <div class="col-md-4">
+          <input class="form-control" id="cv2" ng-model="data.cvv" type="text" />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-12">
+          <button class="btn btn-primary" type="button" ng-click="payment(data)">Pay</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
